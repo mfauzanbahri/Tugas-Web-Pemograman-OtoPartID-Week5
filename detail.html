@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detail Produk - OtoPartID</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body data-page="detail" class="min-h-screen flex flex-col bg-gray-100 text-slate-800">
+  <header class="bg-slate-900 sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-14">
+        <a href="index.html" class="text-lg font-bold text-white">Oto<span class="text-amber-400">PartID</span></a>
+        <button id="menuBtn" type="button" class="md:hidden text-white p-2" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <nav class="hidden md:flex gap-1"><a href="index.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-700">Dashboard</a><a href="daftar.html" class="block px-3 py-2 rounded-md text-sm font-medium bg-amber-500 text-slate-900">Daftar Sparepart</a><a href="form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-700">Tambah Data</a></nav>
+      </div>
+      <nav id="menu" class="hidden md:hidden pb-3 space-y-1"><a href="index.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-700">Dashboard</a><a href="daftar.html" class="block px-3 py-2 rounded-md text-sm font-medium bg-amber-500 text-slate-900">Daftar Sparepart</a><a href="form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-700">Tambah Data</a></nav>
+    </div>
+  </header>
+  <main class="max-w-6xl w-full mx-auto px-4 py-6 flex-grow">
+    <nav aria-label="breadcrumb" class="text-sm text-slate-500 mb-4">
+      <a href="index.html" class="hover:underline">Dashboard</a> / <a href="daftar.html" class="hover:underline">Daftar Sparepart</a> / <span id="breadcrumbNama" class="text-slate-800">Detail</span>
+    </nav>
+    <p id="tidakDitemukan" style="display:none" class="bg-white rounded-lg shadow p-5">Sparepart tidak ditemukan. <a href="daftar.html" class="text-blue-700 hover:underline">Kembali ke daftar</a>.</p>
+    <div id="detailKonten">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600" alt="Foto komponen kendaraan dalam kemasan" class="md:col-span-2 w-full rounded-lg shadow object-cover">
+        <div class="md:col-span-3">
+          <h1 id="judul" class="text-2xl font-bold">Detail sparepart</h1>
+          <h2 class="mt-5 mb-2 text-sm font-semibold text-slate-500">Spesifikasi</h2>
+          <dl id="spesifikasi" class="grid grid-cols-3 gap-y-2 text-sm"></dl>
+          <button id="btnDeskripsi" type="button" aria-expanded="false" aria-controls="deskripsiBox" class="mt-4 rounded-md border border-gray-400 px-3 py-1.5 text-sm hover:bg-gray-200">Tampilkan deskripsi</button>
+          <div id="deskripsiBox" style="display:none" class="mt-3 bg-white rounded-lg shadow p-4 text-sm"><p id="deskripsiText"></p></div>
+        </div>
+      </div>
+      <h2 class="text-lg font-semibold mt-8 mb-1">Perbandingan Harga Marketplace</h2>
+      <p id="infoHemat" class="text-sm text-slate-500 mb-2"></p>
+      <div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full text-sm">
+        <thead class="bg-slate-900 text-white"><tr><th class="px-4 py-3 text-left font-semibold">Marketplace</th><th class="px-4 py-3 text-left font-semibold">Harga</th><th class="px-4 py-3 text-left font-semibold">Status</th><th class="px-4 py-3 text-left font-semibold">Link Beli</th></tr></thead>
+        <tbody id="tabelHarga" class="divide-y divide-gray-200"></tbody>
+      </table></div>
+    </div>
+  </main>
+  <footer class="bg-slate-900 text-slate-300 text-center text-sm py-4 px-4">&copy; 2026 OtoPartID - Tugas Pemrograman Web - Muhammad Fauzan Bahri</footer>
+  <div id="toast" role="status" aria-live="polite" style="display:none" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:max-w-sm z-50 rounded-md px-4 py-3 text-white shadow-lg"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    // Menu mobile (jQuery)
+    $(function () {
+      $("#menuBtn").on("click", function () {
+        const buka = $("#menu").toggleClass("hidden").hasClass("hidden") === false;
+        $(this).attr("aria-expanded", buka);
+      });
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

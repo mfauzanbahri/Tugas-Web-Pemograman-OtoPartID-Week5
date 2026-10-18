@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - OtoPartID</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body data-page="index" class="min-h-screen flex flex-col bg-gray-100 text-slate-800">
+  <header class="bg-slate-900 sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-14">
+        <a href="index.html" class="text-lg font-bold text-white">Oto<span class="text-amber-400">PartID</span></a>
+        <button id="menuBtn" type="button" class="md:hidden text-white p-2" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <nav class="hidden md:flex gap-1"><a href="index.html" class="block px-3 py-2 rounded-md text-sm font-medium bg-amber-500 text-slate-900">Dashboard</a><a href="daftar.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-700">Daftar Sparepart</a><a href="form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-700">Tambah Data</a></nav>
+      </div>
+      <nav id="menu" class="hidden md:hidden pb-3 space-y-1"><a href="index.html" class="block px-3 py-2 rounded-md text-sm font-medium bg-amber-500 text-slate-900">Dashboard</a><a href="daftar.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-700">Daftar Sparepart</a><a href="form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-700">Tambah Data</a></nav>
+    </div>
+  </header>
+  <main class="max-w-6xl w-full mx-auto px-4 py-6 flex-grow">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-5">
+      <div>
+        <h1 class="text-2xl font-bold">Dashboard</h1>
+        <p class="text-slate-500">Katalog dan pembanding harga sparepart kendaraan.</p>
+      </div>
+      <button id="btnReset" type="button" class="self-start rounded-md border border-gray-400 px-3 py-1.5 text-sm hover:bg-gray-200">Reset data contoh</button>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white rounded-lg shadow p-4"><div class="text-sm text-slate-500">Total sparepart</div><div id="statTotal" class="text-xl sm:text-2xl font-bold">-</div></div>
+      <div class="bg-white rounded-lg shadow p-4"><div class="text-sm text-slate-500">Kategori terisi</div><div id="statKategori" class="text-xl sm:text-2xl font-bold">-</div></div>
+      <div class="bg-white rounded-lg shadow p-4"><div class="text-sm text-slate-500">Marketplace dibandingkan</div><div id="statMarketplace" class="text-xl sm:text-2xl font-bold">-</div></div>
+      <div class="bg-white rounded-lg shadow p-4"><div class="text-sm text-slate-500">Harga termurah</div><div id="statTermurah" class="text-xl sm:text-2xl font-bold">-</div></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <section class="lg:col-span-2 bg-white rounded-lg shadow overflow-hidden">
+        <h2 class="px-4 py-3 font-semibold border-b">Sparepart terbaru</h2>
+        <div class="overflow-x-auto"><table class="min-w-full text-sm">
+          <thead class="bg-gray-100 text-slate-700"><tr><th class="px-4 py-3 text-left font-semibold">Kode OEM</th><th class="px-4 py-3 text-left font-semibold">Nama Komponen</th><th class="px-4 py-3 text-left font-semibold">Kategori</th><th class="px-4 py-3 text-left font-semibold">Harga Termurah</th><th class="px-4 py-3 text-left font-semibold">Aksi</th></tr></thead>
+          <tbody id="tabelTerbaru" class="divide-y divide-gray-200"></tbody>
+        </table></div>
+        <div class="px-4 py-3 border-t"><a href="daftar.html" class="text-blue-700 hover:underline text-sm">Lihat semua sparepart</a></div>
+      </section>
+      <aside class="bg-white rounded-lg shadow">
+        <h2 class="px-4 py-3 font-semibold border-b">Per kategori</h2>
+        <ul id="daftarKategori" class="divide-y"></ul>
+        <div class="p-4"><a href="form.html" class="block text-center rounded-md bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold py-2">Tambah sparepart</a></div>
+      </aside>
+    </div>
+  </main>
+  <footer class="bg-slate-900 text-slate-300 text-center text-sm py-4 px-4">&copy; 2026 OtoPartID - Tugas Pemrograman Web - Muhammad Fauzan Bahri</footer>
+  <div id="toast" role="status" aria-live="polite" style="display:none" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:max-w-sm z-50 rounded-md px-4 py-3 text-white shadow-lg"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    // Menu mobile (jQuery)
+    $(function () {
+      $("#menuBtn").on("click", function () {
+        const buka = $("#menu").toggleClass("hidden").hasClass("hidden") === false;
+        $(this).attr("aria-expanded", buka);
+      });
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

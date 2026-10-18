@@ -38,18 +38,5 @@ Tampilan OtoPartID (kartu statistik, badge "Termurah", tabel perbandingan market
 ### Cara menjalankan
 Buka `index.html` di browser (butuh internet untuk CDN Tailwind dan jQuery).
 
-### Demo dan screenshot
-Simpan di `docs/screenshots/`.
-
-| Interaksi | Sebelum | Sesudah |
-|---|---|---|
-| Tampilkan form tambah cepat | ![](docs/screenshots/form-cepat-sebelum.png) | ![](docs/screenshots/form-cepat-sesudah.png) |
-| Validasi form kosong | ![](docs/screenshots/validasi-sebelum.png) | ![](docs/screenshots/validasi-sesudah.png) |
-| Hapus sparepart | ![](docs/screenshots/hapus-sebelum.png) | ![](docs/screenshots/hapus-sesudah.png) |
-| Cari / filter | ![](docs/screenshots/filter-sebelum.png) | ![](docs/screenshots/filter-sesudah.png) |
-| Tampilkan deskripsi (detail) | ![](docs/screenshots/deskripsi-sebelum.png) | ![](docs/screenshots/deskripsi-sesudah.png) |
-
-
-
 ## Identitas
 Muhammad Fauzan Bahri - Tugas Pemrograman Web
